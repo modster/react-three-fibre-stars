@@ -1,2 +1,1 @@
-# react-three-fibre-stars
-Created with CodeSandbox
+# React Three Fibre
