@@ -2,15 +2,6 @@ import { useState, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Points, PointMaterial } from '@react-three/drei'
 import * as random from 'maath/random/dist/maath-random.esm'
-
-export default function App() {
-  return (
-    <Canvas camera={{ position: [0, 0, 1] }}>
-      <Stars />
-    </Canvas>
-  )
-}
-
 function Stars(props) {
   const ref = useRef()
   const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }))
@@ -24,5 +15,13 @@ function Stars(props) {
         <PointMaterial transparent color="#ffa0e0" size={0.005} sizeAttenuation={true} depthWrite={false} />
       </Points>
     </group>
+  )
+}
+export default function App() {
+  return (
+    <Canvas camera={{ position: [0, 0, 1] }}>
+      <Stars />
+      <Effects />
+    </Canvas>
   )
 }
