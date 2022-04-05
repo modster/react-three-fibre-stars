@@ -1,7 +1,7 @@
-//import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom'
 import './styles.css'
 import App from './App'
-import { render } from 'react-snapshot'
+
 // function Overlay() {
 //   return (
 //     <div style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none', width: '100%', height: '100%' }}>
@@ -12,7 +12,7 @@ import { render } from 'react-snapshot'
 //   )
 // }<Overlay />
 
-render(
+ReactDOM.render(
   <>
     <App />
   </>,

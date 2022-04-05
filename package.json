@@ -17,11 +17,11 @@
     "three": "0.138.0"
   },
   "devDependencies": {
-    "react-snapshot": "^1.3.0"
+    "react-snap": "^1.23.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && react-snapshot",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "serve": "serve -s build",
     "browsers": "npx browserslist@latest --update-d",
