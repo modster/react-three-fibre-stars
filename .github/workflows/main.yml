@@ -12,7 +12,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X64]
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
