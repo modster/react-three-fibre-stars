@@ -1,14 +1,8 @@
 {
-  "name": "gatsby-stars",
+  "name": "react-three-fibre-stars",
   "version": "1.0.0",
-  "description": null,
-  "keywords": [
-    "stars",
-    "text",
-    "gradient",
-    "instances",
-    "gatsby"
-  ],
+  "description": "",
+  "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "@pmndrs/branding": "0.0.8",
