@@ -4,6 +4,7 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "homepage": ".",
   "dependencies": {
     "@pmndrs/branding": "0.0.8",
     "@react-three/drei": "8.10.7",
