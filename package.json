@@ -16,15 +16,19 @@
     "react-scripts": "5.0.0",
     "three": "0.138.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "react-snapshot": "^1.3.0"
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && react-snapshot",
     "test": "react-scripts test --env=jsdom",
     "serve": "serve -s build",
+    "browsers": "npx browserslist@latest --update-d",
     "eject": "react-scripts eject"
   },
   "browserslist": [
+    "last 2 versions",
     ">0.2%",
     "not dead",
     "not ie <= 11",
