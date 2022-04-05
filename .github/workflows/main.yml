@@ -12,7 +12,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: self-hosted
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -23,15 +23,19 @@ jobs:
         with:
           node-version: "14"
 
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-
-      - run: npm i
-      - run: npm run build
+            ${{ runner.os }}-yarn-
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
