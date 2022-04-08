@@ -1,4 +1,4 @@
-# React Three Fibre Starfield
+# React Three Fibre Stars
 
 [Github Page Demo](https://greeffer.com/react-three-fibre-stars/)
 
