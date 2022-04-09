@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "src/index.js",
+  "main": "index.js",
   "homepage": ".",
+  "license": "MIT",
   "dependencies": {
     "@pmndrs/branding": "0.0.8",
     "@react-three/drei": "8.10.7",
@@ -18,16 +19,15 @@
     "three": "0.138.0"
   },
   "devDependencies": {
-    "eslint": "^8.12.0",
     "react-snap": "^1.13.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
-    "serve": "serve -s build",
-    "browsers": "npx browserslist@latest --update-d",
-    "eject": "react-scripts eject"
+    "serve": "serve -s build"
   },
   "browserslist": [
     "last 2 versions",

@@ -24,3 +24,5 @@ yarn-error.log*
 
 # development
 /notes
+.vscode
+.github
