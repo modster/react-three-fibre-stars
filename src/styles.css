@@ -20,7 +20,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: #ddd;
-  background: #2d7cf1;
+  background: #05093e;
 }
 
 a {
@@ -32,9 +32,11 @@ a {
 svg {
   fill: #ddd;
 }
-
+/* 
 h1 {
   background: linear-gradient(30deg, #c850c0, #ffcc70);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+*/

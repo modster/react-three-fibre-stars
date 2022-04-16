@@ -2,6 +2,13 @@ import ReactDOM from 'react-dom'
 import './styles.css'
 import App from './App'
 
+
+ReactDOM.render(
+  <>
+    <App />
+  </>,
+  document.getElementById('root')
+)
 // function Overlay() {
 //   return (
 //     <div style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none', width: '100%', height: '100%' }}>
@@ -11,10 +18,3 @@ import App from './App'
 //     </div>
 //   )
 // }<Overlay />
-
-ReactDOM.render(
-  <>
-    <App />
-  </>,
-  document.getElementById('root')
-)
