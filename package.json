@@ -9,6 +9,7 @@
     "@pmndrs/branding": "0.0.8",
     "@react-three/drei": "8.10.7",
     "@react-three/fiber": "7.0.26",
+    "@react-three/postprocessing": "^2.3.2",
     "@types/three": "0.137.0",
     "drei": "^2.2.21",
     "lamina": "1.0.6",
