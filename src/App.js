@@ -1,28 +1,71 @@
-import React, { useState, useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Points, PointMaterial } from '@react-three/drei'
-import * as random from 'maath/random/dist/maath-random.esm'
+import { EffectComposer, DepthOfField, Bloom, Noise, Vignette, BrightnessContrast } from '@react-three/postprocessing'
+import { BlurPass, Resizer, KernelSize } from 'postprocessing'
+import { Canvas } from '@react-three/fiber'
+import Stars from './components/StarScene/StarScene'
+import { OrbitControls } from '@react-three/drei'
+// import { Text } from "troika-three-text";
+// import fonts from "./components/Text/fonts";
+
+// extend({ Text });
+// const text = "GREEFFER";
 
 export default function App() {
+
   return (
-    <Canvas camera={{ position: [0, 0, 1] }}>
+    <Canvas camera={{ fov: 80, position: [0, 0, 1] }}>
+      {/* Your regular scene contents go here, like always ... */}
+      <OrbitControls enableZoom={true} enablePan={true} enableRotate={false} />
+
+      <ambientLight />
+
+      <Stars />
+
+      <pointLight position={[-100, 0, -160]} />
+      <pointLight position={[0, 0, -170]} />
+      <pointLight position={[100, 0, -160]} />
+      <EffectComposer multisampling={8}>
+
+        {/* <directionalLight color="blue" position={[0, 0, 5]} /> */}
+        <Bloom kernelSize={3} luminanceThreshold={0} luminanceSmoothing={0.2} intensity={0.3} />
+        <Bloom kernelSize={KernelSize.HUGE} luminanceThreshold={0} luminanceSmoothing={0} intensity={0.5} />
+        <DepthOfField focusDistance={0.00} focalLength={0.02} bokehScale={2} />
+        {/* <Bloom intensity={0} luminanceThreshold={0} luminanceSmoothing={1} /> */}
+        {/* <Noise opacity={0.02} /> */}
+        <Vignette eskil={true} offset={0.4} darkness={0.4} />
+      </EffectComposer>
+    </Canvas>
+  )
+}
+
+/**
+export default function App() {
+
+  return (
+    <Canvas>
       <Stars />
     </Canvas>
   )
 }
 
-function Stars(props) {
-  const ref = useRef()
-  const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }))
-  useFrame((state, delta) => {
-    ref.current.rotation.x += delta / 1500
-    ref.current.rotation.y += delta / 1500
-  })
+/**
+// import Sky from './components/SkyScene/SkyScene'
+// import Clouds from './components/CloudScene/CloudScene'
+// import BackDrop from './components/BackDrop'
+// import GradientTexture from './components/GradientTexture'
+
+export default function App() {
   return (
-    <group rotation={[0, 0, Math.PI / 10]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={true} {...props}>
-        <PointMaterial transparent color="#ffa0e0" size={0.005} sizeAttenuation={true} depthWrite={false} />
-      </Points>
-    </group>
+    <Canvas camera={{ fov: 80, position: [0, 0, 1] }}>
+      <Stars />
+    </Canvas>
   )
 }
+
+;<Canvas>
+  <ambientLight intensity={0.1} />
+  <directionalLight color="red" position={[0, 0, 5]} />
+  <mesh>
+    <boxGeometry />
+    <meshStandardMaterial />
+  </mesh>
+</Canvas> */
