@@ -1,5 +1,6 @@
+import React from 'react';
 import { EffectComposer, DepthOfField, Bloom, Noise, Vignette, BrightnessContrast } from '@react-three/postprocessing'
-import { BlurPass, Resizer, KernelSize } from 'postprocessing'
+import { KernelSize } from 'postprocessing'
 import { Canvas } from '@react-three/fiber'
 import Stars from './components/StarScene/StarScene'
 import { OrbitControls } from '@react-three/drei'
@@ -27,7 +28,7 @@ export default function App() {
 
         {/* <directionalLight color="blue" position={[0, 0, 5]} /> */}
         <Bloom kernelSize={3} luminanceThreshold={0} luminanceSmoothing={0.2} intensity={0.3} />
-        <Bloom kernelSize={KernelSize.HUGE} luminanceThreshold={0} luminanceSmoothing={0} intensity={0.5} />
+        {/* <Bloom kernelSize={KernelSize.HUGE} luminanceThreshold={0} luminanceSmoothing={0} intensity={0.5} /> */}
         <DepthOfField focusDistance={0.00} focalLength={0.02} bokehScale={2} />
         {/* <Bloom intensity={0} luminanceThreshold={0} luminanceSmoothing={1} /> */}
         {/* <Noise opacity={0.02} /> */}
